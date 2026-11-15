@@ -1,0 +1,197 @@
+{
+  "testedAt": "2026-11-14T17:32:04.163Z",
+  "results": [
+    {
+      "name": "Closed cover, three viewing angles, admin visible",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Cover opens, admin hides, reading controls appear",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Five mesh curl frames, recto/verso and settled target",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "All 12 editorial pages, final boundary and no automatic close",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Keyboard and table of contents navigation",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Clickable contents on the actual 3D paper",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Short pointer drag rolls back",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Long diagonal pointer drag commits",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Pointer cancellation safely rolls back",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "32 official names, exactly once and in sequence in semantic reader",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Anonymous message saved pending and withheld from public API",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Approved message becomes public only after authenticated moderation",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "30 repeated page turns, bounded renderer textures",
+      "status": "PASS",
+      "detail": "11 after warmup and after30; 7 page-cache plus4 renderer/material textures"
+    },
+    {
+      "name": "High, balanced and lite quality settings update live",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Explicit close and reopen preserve navigation state",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "390px touch viewport, readable HTML default, no horizontal overflow",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Touch swipe in 3D commits the next spread",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Reverse touch swipe returns to the previous spread",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "Reduced motion opens a stable accessible reader",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "WebGL unavailable: all pages and farewell remain accessible",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "No uncaught browser JavaScript errors",
+      "status": "PASS",
+      "detail": ""
+    }
+  ],
+  "metrics": [
+    {
+      "environment": "Chrome headless desktop, 1440x960, local Windows, real WebGL backend",
+      "threeRevision": "181",
+      "quality": "balanced",
+      "renderCount": 1163,
+      "sampledFrames": 600,
+      "averageFpsWhileRendering": 57.8,
+      "onePercentLow": 14.9,
+      "calls": 15,
+      "triangles": 6978,
+      "textures": 11,
+      "geometries": 15,
+      "lastRenderMs": 0.4000000059604645,
+      "heapBytes": 13833113,
+      "startupMs": 2882
+    },
+    {
+      "environment": "Chrome headless desktop high, two animated turns",
+      "threeRevision": "181",
+      "quality": "high",
+      "renderCount": 1271,
+      "sampledFrames": 108,
+      "averageFpsWhileRendering": 59.7,
+      "onePercentLow": 42.8,
+      "calls": 15,
+      "triangles": 6978,
+      "textures": 11,
+      "geometries": 15,
+      "lastRenderMs": 1.5999999940395355,
+      "heapBytes": 12018381,
+      "startupMs": 2882
+    },
+    {
+      "environment": "Chrome headless desktop balanced, two animated turns",
+      "threeRevision": "181",
+      "quality": "balanced",
+      "renderCount": 1379,
+      "sampledFrames": 108,
+      "averageFpsWhileRendering": 60,
+      "onePercentLow": 50.4,
+      "calls": 15,
+      "triangles": 6978,
+      "textures": 11,
+      "geometries": 15,
+      "lastRenderMs": 0.7000000029802322,
+      "heapBytes": 11719529,
+      "startupMs": 2882
+    },
+    {
+      "environment": "Chrome headless desktop lite, two animated turns",
+      "threeRevision": "181",
+      "quality": "lite",
+      "renderCount": 1487,
+      "sampledFrames": 108,
+      "averageFpsWhileRendering": 60,
+      "onePercentLow": 56,
+      "calls": 14,
+      "triangles": 3522,
+      "textures": 11,
+      "geometries": 15,
+      "lastRenderMs": 0.9000000059604645,
+      "heapBytes": 13679457,
+      "startupMs": 2882
+    },
+    {
+      "environment": "Chrome emulated touch 390x844; not physical phone",
+      "threeRevision": "181",
+      "quality": "lite",
+      "renderCount": 303,
+      "sampledFrames": 301,
+      "averageFpsWhileRendering": 55,
+      "onePercentLow": 9.2,
+      "calls": 14,
+      "triangles": 3522,
+      "textures": 11,
+      "geometries": 14,
+      "lastRenderMs": 0.30000001192092896,
+      "heapBytes": 11774073,
+      "startupMs": 1313
+    }
+  ],
+  "errors": [],
+  "limits": [
+    "Chrome only; physical Android/iOS and screen reader not tested",
+    "Headless timings are not target-device performance certification"
+  ]
+}

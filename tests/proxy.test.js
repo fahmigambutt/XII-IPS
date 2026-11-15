@@ -1,0 +1,41 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { mkdtemp, rm } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { createServer as createTCPServer } from 'node:net';
+import { createServer } from 'vite';
+import viteConfig from '../vite.config.js';
+import { createApp } from '../server/app.js';
+import { createAdmin } from '../server/database.js';
+
+test('Vite proxy preserves Origin/Host for authenticated writes and rejects foreign origins', async (t) => {
+  const dataDir = await mkdtemp(join(tmpdir(), 'xii-ips-proxy-'));
+  const app = createApp({ dataDir });
+  await createAdmin(app.locals.db, 'proxy-admin', 'proxy-test-password-7391');
+  const backend = await new Promise((resolve) => { const server = app.listen(0, '127.0.0.1', () => resolve(server)); });
+  const target = `http://127.0.0.1:${backend.address().port}`;
+  const freePort = await new Promise((resolve) => { const probe = createTCPServer(); probe.listen(0, '127.0.0.1', () => { const port = probe.address().port; probe.close(() => resolve(port)); }); });
+  const rebase = (rule) => typeof rule === 'string' ? target : { ...rule, target };
+  const vite = await createServer({ ...viteConfig, configFile: false, server: { ...viteConfig.server, port: freePort, proxy: { '/api': rebase(viteConfig.server.proxy['/api']), '/uploads': rebase(viteConfig.server.proxy['/uploads']) } }, logLevel: 'silent' });
+  t.after(async () => {
+    await vite.close();
+    await new Promise((resolve) => backend.close(resolve));
+    app.locals.close();
+    await rm(dataDir, { recursive: true, force: true });
+  });
+  await vite.listen();
+  const origin = `http://127.0.0.1:${vite.httpServer.address().port}`;
+  const login = await fetch(`${origin}/api/auth/login`, { method: 'POST', headers: { Origin: origin, 'Content-Type': 'application/json' }, body: JSON.stringify({ username: 'proxy-admin', password: 'proxy-test-password-7391' }) });
+  assert.equal(login.status, 200);
+  const session = await login.json();
+  const cookie = login.headers.get('set-cookie').split(';')[0];
+  const content = await (await fetch(`${origin}/api/content`)).json();
+  content.cover.tagline = 'Saved through Vite proxy';
+  const headers = { Origin: origin, Cookie: cookie, 'Content-Type': 'application/json', 'x-csrf-token': session.csrfToken };
+  const saved = await fetch(`${origin}/api/admin/content`, { method: 'PUT', headers, body: JSON.stringify({ content }) });
+  assert.equal(saved.status, 200);
+  assert.equal((await saved.json()).cover.tagline, 'Saved through Vite proxy');
+  const rejected = await fetch(`${origin}/api/admin/content`, { method: 'PUT', headers: { ...headers, Origin: 'https://foreign-origin.example' }, body: JSON.stringify({ content }) });
+  assert.equal(rejected.status, 403);
+});

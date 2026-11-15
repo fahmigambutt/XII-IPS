@@ -1,0 +1,32 @@
+{
+  "results": [
+    {
+      "name": "Built dist serves with production CSP, local fonts and interactive 3D",
+      "status": "PASS"
+    },
+    {
+      "name": "Production login and CSRF-protected CMS write persist",
+      "status": "PASS"
+    },
+    {
+      "name": "Context loss presents a 3D retry action without switching into an HTML reader",
+      "status": "PASS"
+    },
+    {
+      "name": "API outage clearly labels offline seed content and refuses false message success",
+      "status": "PASS"
+    },
+    {
+      "name": "A device without WebGL receives a clear 3D recovery state, never a hidden reader",
+      "status": "PASS"
+    },
+    {
+      "name": "No JavaScript errors or CSP violations in production flow",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "limits": [
+    "Local HTTP production-mode build; external HTTPS reverse proxy not tested"
+  ]
+}

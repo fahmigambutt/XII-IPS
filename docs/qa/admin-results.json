@@ -1,0 +1,96 @@
+{
+  "suite": "isolated-admin-browser",
+  "startedAt": "2026-11-15T08:33:48.836Z",
+  "browser": "Chrome / Chromium, headless",
+  "checks": [
+    {
+      "name": "Session protection, labeled login and password visibility",
+      "status": "pass",
+      "durationMs": 631
+    },
+    {
+      "name": "All nine CMS menus render",
+      "status": "pass",
+      "durationMs": 355
+    },
+    {
+      "name": "Unsaved cover preview, unload protection and persistent save",
+      "status": "pass",
+      "durationMs": 247
+    },
+    {
+      "name": "Cancel discards drafts and teacher edits persist",
+      "status": "pass",
+      "durationMs": 153
+    },
+    {
+      "name": "All 32 official students, search and fixed selection",
+      "status": "pass",
+      "durationMs": 98
+    },
+    {
+      "name": "Real PNG upload, server WebP and zero-percent crop",
+      "status": "pass",
+      "durationMs": 121
+    },
+    {
+      "name": "Gallery add, caption and editorial page assignment",
+      "status": "pass",
+      "durationMs": 151
+    },
+    {
+      "name": "Bulk upload and gallery order",
+      "status": "pass",
+      "durationMs": 278
+    },
+    {
+      "name": "Anonymous messages remain private until moderation",
+      "status": "pass",
+      "durationMs": 434
+    },
+    {
+      "name": "Farewell text and page ornaments persist",
+      "status": "pass",
+      "durationMs": 118
+    },
+    {
+      "name": "Quality and message settings persist",
+      "status": "pass",
+      "durationMs": 136
+    },
+    {
+      "name": "Backup download and confirmed restore with uploaded assets",
+      "status": "pass",
+      "durationMs": 496
+    },
+    {
+      "name": "Student and message JSON exports",
+      "status": "pass",
+      "durationMs": 258
+    },
+    {
+      "name": "Desktop and 390px mobile visual inspection artifacts",
+      "status": "pass",
+      "durationMs": 209
+    },
+    {
+      "name": "Logout invalidates session, unload guard cleanup and no JavaScript errors",
+      "status": "pass",
+      "durationMs": 330
+    }
+  ],
+  "screenshots": [
+    "docs/qa/admin-desktop.png",
+    "docs/qa/admin-mobile.png",
+    "docs/qa/admin-login.png"
+  ],
+  "browserErrors": [],
+  "confirmations": [
+    "Batalkan semua perubahan yang belum disimpan?",
+    "Hapus pesan ini secara permanen?",
+    "RESTORE akan mengganti konten dan pesan saat ini. Sudah menyimpan backup terbaru dan ingin melanjutkan?"
+  ],
+  "finishedAt": "2026-11-15T08:33:53.884Z",
+  "passed": 15,
+  "failed": 0
+}
